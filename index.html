@@ -33,4 +33,4 @@ $('run').onclick=()=>runCommand($('command').value);
 $('command').addEventListener('keydown',e=>{if(e.key==='Enter')runCommand($('command').value)});
 $('stop').onclick=()=>{if('speechSynthesis'in window)speechSynthesis.cancel();$('status').textContent='Voice stopped'};
 $('listen').onclick=()=>{let SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){say('Is browser mein speech recognition available nahi. Chrome/device support check karo.');return}let r=new SR();r.lang='hi-IN';r.interimResults=false;r.onstart=()=>{$('status').textContent='Listening…'};r.onresult=e=>{let t=e.results[0][0].transcript;$('command').value=t;$('status').textContent='Heard: '+t;runCommand(t)};r.onerror=e=>say('Mic error: '+e.error+'. Chrome microphone permission aur internet check karo.');r.onend=()=>{$('status').textContent='Ready'};r.start()};
-</script></body></html>
+</scrip>
